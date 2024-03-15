@@ -1,15 +1,36 @@
 export class MarsRover {
+
+  private facingDirection: string = 'N'
+  private xPosition: number = 0
+  private yPosition: number = 0
+
   constructor() {}
 
   public execute(command: string): string {
-    const lookingRight = command.includes("R") ? true : false
-    if (command.includes("M")) {
-      return lookingRight ? `${command.length - 1}:0:E` : `0:${command.length}:N`
-    }
-
-    if (command === "L") return "0:0:W"
-    if (command === "R") return "0:0:E"
-
-    return "0:0:N"
+    
+    command.split('').forEach((instruction) => {
+      switch(instruction) {
+        case 'M':
+          if (this.facingDirection == 'N') this.yPosition++
+          else if (this.facingDirection == 'E') this.xPosition++
+          else if (this.facingDirection == 'S') this.yPosition--
+          else if (this.facingDirection == 'W') this.xPosition--
+          break;
+        case 'L':
+          if (this.facingDirection == 'N') this.facingDirection = 'W'
+          else if (this.facingDirection == 'E') this.facingDirection = 'N'
+          else if (this.facingDirection == 'S') this.facingDirection = 'E'
+          else if (this.facingDirection == 'W') this.facingDirection = 'S'
+          break;
+        case 'R':
+          if (this.facingDirection == 'N') this.facingDirection = 'E'
+          else if (this.facingDirection == 'E') this.facingDirection = 'S'
+          else if (this.facingDirection == 'S') this.facingDirection = 'W'
+          else if (this.facingDirection == 'W') this.facingDirection = 'N'
+          break;
+      }
+    })
+    
+    return `${this.xPosition}:${this.yPosition}:${this.facingDirection}`
   }
 }
