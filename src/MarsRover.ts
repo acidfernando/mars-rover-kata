@@ -2,8 +2,9 @@ export class MarsRover {
   constructor() {}
 
   public execute(command: string): string {
+    const lookingRight = command.includes("R") ? true : false
     if (command.includes("M")) {
-      return `0:${command.length}:N`
+      return lookingRight ? `${command.length - 1}:0:E` : `0:${command.length}:N`
     }
 
     if (command === "L") return "0:0:W"
