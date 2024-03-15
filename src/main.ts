@@ -2,6 +2,6 @@ export class MarsRover {
   constructor() {}
 
   public execute(command: string): string {
-    return ""
+    return "1:1:E"
   }
 }
