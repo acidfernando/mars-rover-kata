@@ -22,4 +22,11 @@ describe(MarsRover, () => {
     const position = marsRover.execute("L")
     expect(position).toBe("0:0:W")
   })
+
+  it("should create a rover and should be able to turn Right", () => {
+    const marsRover = new MarsRover()
+
+    const position = marsRover.execute("R")
+    expect(position).toBe("0:0:E")
+  })
 })
