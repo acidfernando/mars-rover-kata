@@ -50,4 +50,12 @@ describe(MarsRover, () => {
     const position = marsRover.execute("RMLM")
     expect(position).toBe("1:1:N")
   })
+
+  it("rotates left and move forward (gets out of grid)", () => {
+    const marsRover = new MarsRover()
+
+    const position = marsRover.execute("LM")
+    expect(position).toBe("9:0:W")
+  })
+
 })
