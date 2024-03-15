@@ -1,3 +1,7 @@
-export function myFunction() {
-  return true
+export class MarsRover {
+  constructor() {}
+
+  public execute(command: string): string {
+    return ""
+  }
 }

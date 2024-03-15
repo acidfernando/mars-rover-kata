@@ -1,10 +1,11 @@
 import { describe, it, expect } from "vitest"
-import { myFunction } from "./main.js"
+import { MarsRover } from "./main.js"
 
-describe("Default test", () => {
-  it("should work", () => {
-    const result = myFunction()
+describe(MarsRover, () => {
+  it("should create a rover and move it", () => {
+    const marsRover = new MarsRover()
 
-    expect(result).toBe(true)
+    const position = marsRover.execute("MRM")
+    expect(position).toBe("1:1:E")
   })
 })
